@@ -5,9 +5,10 @@ include("_gestionBase.inc.php");
 include("_controlesEtGestionErreurs.inc.php");
 echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
-   <td align='center'><a href='index.php' align='center' >Accueil></a></td>
+   <td align='center'><a href='index.php'>Accueil ></a><a href = 'attributionStand.php'>attributionStand ></a>listeStand</td>
    </tr>
-</table>";
+</table>
+<br>";
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 
 

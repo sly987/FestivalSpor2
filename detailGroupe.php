@@ -6,9 +6,10 @@ include("_controlesEtGestionErreurs.inc.php");
 
 echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
-   <td align='center'><a href='index.php' align='center' >Accueil></a></td>
+   <td align='center'><a href='index.php'>Accueil ></a><a href='listeGroupe.php'>listeGroupe ></a>detailGroupe
    </tr>
-</table>";
+</table>
+<br>";
 $idGroupe=$_REQUEST['idGroupe'];  
 
 // OBTENIR LE DÉTAIL DE L'ÉTABLISSEMENT SÉLECTIONNÉ

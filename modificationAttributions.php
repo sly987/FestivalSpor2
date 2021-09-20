@@ -5,9 +5,10 @@ include("_gestionBase.inc.php");
 include("_controlesEtGestionErreurs.inc.php");
 echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
-   <td align='center'><a href='index.php' align='center' >Accueil></a></td>
+   <td align='center'><a href='index.php'>Accueil ></a><a href='consultationAttributions.php'>consultationAttributions ></a>modificationAttributions</td>
    </tr>
-</table>";
+</table>
+<br>";
 // EFFECTUER OU MODIFIER LES ATTRIBUTIONS POUR L'ENSEMBLE DES ÉTABLISSEMENTS
 
 // CETTE PAGE CONTIENT UN TABLEAU CONSTITUÉ DE 2 LIGNES D'EN-TÊTE (LIGNE TITRE ET 

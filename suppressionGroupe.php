@@ -5,31 +5,19 @@ include("_gestionBase.inc.php");
 include("_controlesEtGestionErreurs.inc.php");
 echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
-   <td align='center'><a href='index.php' align='center' >Accueil></a></td>
+   <td align='center'><a href='index.php'>Accueil ></a><a href='listeGroupe.php'>listeGroupe ></a>suppressionGroupe
    </tr>
-</table>";
-// CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
+</table>
+<br>";
 
-$connexion=connect();
-if (!$connexion)
-{
-   ajouterErreur("Echec de la connexion au serveur MySql");
-   afficherErreurs();
-   exit();
-}
-if (!selectBase($connexion))
-{
-   ajouterErreur("La base de données festival est inexistante ou non accessible");
-   afficherErreurs();
-   exit();
-}
 
 // SUPPRIMER UN ÉTABLISSEMENT 
 
 $idGroupe=$_REQUEST['idGroupe'];  
 
 $lgGroupe=obtenirDetailGroupe($connexion, $idGroupe);
-$nomGroupe=$lgGroupe['nomGroupe'];
+foreach($lgGroupe as $row)
+$nomGroupe=$row['nomGroupe'];
 
 // Cas 1ère étape (on vient de listeEtablissements.php)
 

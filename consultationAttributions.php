@@ -5,9 +5,10 @@ include("_gestionBase.inc.php");
 include("_controlesEtGestionErreurs.inc.php");
 echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
-   <td align='center'><a href='index.php' align='center' >Accueil></a></td>
+   <td align='center'><a href='index.php'>Accueil ></a>consultationAttribution</td>
    </tr>
-</table>";
+</table>
+<br>";
 // CONSULTER LES ATTRIBUTIONS DE TOUS LES ÉTABLISSEMENTS
 
 // IL FAUT QU'IL Y AIT AU MOINS UN ÉTABLISSEMENT OFFRANT DES CHAMBRES POUR  

@@ -6,9 +6,10 @@ include("_controlesEtGestionErreurs.inc.php");
 
 echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
-   <td align='center'><a href='index.php' align='center' >Accueil></a></td>
+   <td align='center'><a href='index.php'>Accueil ></a>listeGroupe
    </tr>
-</table>";
+</table>
+<br>";
 echo '<table width = 40% align = "center">
 	<form method ="POST" action = "résultatGroupe.php">
 	<tr>

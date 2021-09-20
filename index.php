@@ -3,9 +3,10 @@
 include "_debut.inc.php";
 echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
-   <td align='center'><a href='index.php' align='center' >Accueil></a></td>
+   <td align='center'>Accueil></td>
    </tr>
-</table>";
+</table>
+<br>";
 echo " 
 <br> 
 <table width='80%' cellspacing='0' cellpadding='0' align='center'>
