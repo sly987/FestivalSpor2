@@ -1,7 +1,11 @@
 <?php
 include("_debut.inc.php");
 include("_gestionBase.inc.php"); 
-
+echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
+   <tr>
+   <td align='center'><a href='index.php' align='center' >Accueil></a></td>
+   </tr>
+</table>";
 echo "</br><h1> La base de donnée a été modifiée</h1>";
 if (isset($_POST['valider']))
 {

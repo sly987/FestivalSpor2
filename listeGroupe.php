@@ -4,7 +4,11 @@ include("_debut.inc.php");
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
 
-
+echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
+   <tr>
+   <td align='center'><a href='index.php' align='center' >Accueil></a></td>
+   </tr>
+</table>";
 echo '<table width = 40% align = "center">
 	<form method ="POST" action = "résultatGroupe.php">
 	<tr>

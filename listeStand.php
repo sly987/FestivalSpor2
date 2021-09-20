@@ -3,7 +3,11 @@ include("connexion-PDO.php");
 include("_debut.inc.php");
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
-
+echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
+   <tr>
+   <td align='center'><a href='index.php' align='center' >Accueil></a></td>
+   </tr>
+</table>";
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 
 
