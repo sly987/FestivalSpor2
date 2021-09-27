@@ -60,7 +60,7 @@ class='tabNonQuadrille'>
          	{
          		$nbChambre = obtenirNbGroupeOccup($connexion, $idGroupe);
             	echo "
-            	<td width='16%'>&nbsp ".$nbChambre." chambres occupés; </td>";          
+            	<td width='16%'>&nbsp ".$nbChambre." chambres occupées </td>";          
 			}
 			echo "</tr>";
    }   
