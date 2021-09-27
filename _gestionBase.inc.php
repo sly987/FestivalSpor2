@@ -158,7 +158,7 @@ function nbChambresMax($connexion, $idEtab)
 
 function obtenirReqIdNomGroupesAHeberger()
 {
-   $req="select idGroupe, nomGroupe, nomPays from Groupe where hebergement='O' order by idGroupe";
+   $req="select idGroupe, nomGroupe, nomPays, nombrePersonnes from Groupe where hebergement='O' order by idGroupe";
    return $req;
 }
 function obtenirReqGroupe()
@@ -272,6 +272,7 @@ function modifierGroupe($connexion, $idGroupe, $nomGroupe, $nombrePersonnes, $li
    
    $connexion->query($req);
 }
+
 
 // FONCTIONS RELATIVES AUX ATTRIBUTIONS
 
