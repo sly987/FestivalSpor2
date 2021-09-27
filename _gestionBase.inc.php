@@ -12,11 +12,12 @@ function obtenirReqEtablissements()
    return $req;
 }
 
-function obtenirReqEtablissementsOffrantChambres()
+function obtenirReqEtablissementsOffrantChambres($connexion)
 {
    $req="select idEtab, nomEtab, nombreChambresOffertes from Etablissement where 
          nombreChambresOffertes!=0 order by idEtab";
-   return $req;
+   $rsEtab=$connexion-> query($req );
+   return $rsEtab->fetchAll();
 }
 
 function obtenirReqEtablissementsAyantChambresAttribuées()
@@ -157,7 +158,7 @@ function nbChambresMax($connexion, $idEtab)
 
 function obtenirReqIdNomGroupesAHeberger()
 {
-   $req="select idGroupe, nomGroupe from Groupe where hebergement='O' order by idGroupe";
+   $req="select idGroupe, nomGroupe, nomPays from Groupe where hebergement='O' order by idGroupe";
    return $req;
 }
 function obtenirReqGroupe()

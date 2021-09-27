@@ -18,7 +18,7 @@ echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
 // Recherche du nombre d'établissements offrant des chambres pour le 
 // dimensionnement des colonnes
 $nbEtabOffrantChambres=obtenirNbEtabOffrantChambres($connexion);
-$nb=$nbEtabOffrantChambres+1;
+$nb=$nbEtabOffrantChambres+2;
 // Détermination du pourcentage de largeur des colonnes "établissements"
 $pourcCol=50/$nbEtabOffrantChambres;
 
@@ -48,11 +48,10 @@ class='tabQuadrille'>";
    // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE (ÉTABLISSEMENTS)
    echo "
    <tr class='ligneTabQuad'>
-      <td>&nbsp;</td>";
+      <td>nom équipe</td>
+      <td>pays d'origine</td>";
       
-   $req=obtenirReqEtablissementsOffrantChambres();
-   $rsEtab=$connexion-> query($req );
-   $lgEtab=$rsEtab->fetchAll();
+   $lgEtab=obtenirReqEtablissementsOffrantChambres($connexion);
 
    // Boucle sur les établissements (pour afficher le nom de l'établissement et 
    // le nombre de chambres encore disponibles)
@@ -84,12 +83,13 @@ class='tabQuadrille'>";
    {
       $idGroupe=$row['idGroupe'];
       $nom=$row['nomGroupe'];
+      $nomPays =$row['nomPays'];
       echo "
       <tr class='ligneTabQuad'>
-         <td width='25%'>$nom</td>";
-      $req=obtenirReqEtablissementsOffrantChambres();
-      $rsEtab=$connexion->query($req);
-      $lgEtab=$rsEtab->fetchAll();
+         <td width='15%'>$nom</td>
+         <td width='10%'>$nomPays</td>";
+      $lgEtab=obtenirReqEtablissementsOffrantChambres($connexion);
+
            
       // BOUCLE SUR LES ÉTABLISSEMENTS
       foreach ($lgEtab as $row)
