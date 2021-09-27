@@ -66,9 +66,18 @@ class='tabQuadrille'>";
                     
       // Calcul du nombre de chambres libres
       $nbChLib = $nbOffre - $nbOccup;
-      echo "
-      <td valign='top' width='$pourcCol%'><i>Disponibilités : $nbChLib </i> <br>
-      $nom </td>";
+      if($nbChLib==0)
+      {
+         echo "
+         <td valign='top' width='$pourcCol%'><i>Disponibilités : complet </i> <br>
+         $nom </td>";  
+      }
+      else
+      {
+         echo "
+         <td valign='top' width='$pourcCol%'><i>Disponibilités : $nbChLib </i> <br>
+         $nom </td>";
+      }
    }
    echo "</tr>"; 
 
@@ -177,7 +186,7 @@ class='tabQuadrille'>";
             
             else
             {
-               echo "<td class='reserveSiLien'>&nbsp;</td>";
+               echo "<td class='reserveSiLien'>complet</td>";
             }
          }  
 
