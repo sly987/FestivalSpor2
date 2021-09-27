@@ -86,8 +86,8 @@ class='tabQuadrille'>";
       $nomPays =$row['nomPays'];
       echo "
       <tr class='ligneTabQuad'>
-         <td width='15%'>$nom</td>
-         <td width='10%'>$nomPays</td>";
+         <td width='13%'>$nom</td>
+         <td width='7%'>$nomPays</td>";
       $lgEtab=obtenirReqEtablissementsOffrantChambres($connexion);
 
            
