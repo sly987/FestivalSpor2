@@ -29,7 +29,8 @@ echo "
    echo "&nbsp;<select name='nbChambres'>";
    for ($i=0; $i<=$nbChambres; $i++)
    {
-      echo "<option>$i</option>";
+      echo "<option>$i</option>
+      <option selected>42</option>";
    }
    echo "
    </select></h5>
