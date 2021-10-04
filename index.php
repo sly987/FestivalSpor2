@@ -1,5 +1,5 @@
 <?php
-
+$title = "/accueil";
 include "_debut.inc.php";
 echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
