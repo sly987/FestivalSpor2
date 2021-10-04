@@ -87,8 +87,10 @@ class='tabQuadrille'>";
    $req=obtenirReqIdNomGroupesAHeberger();
    $rsGroupe=$connexion-> query($req);
    $lgGroupe=$rsGroupe->fetchAll();
-         
+   
+   
    // BOUCLE SUR LES GROUPES À HÉBERGER 
+
    foreach ($lgGroupe as $row)
    {
       $idGroupe=$row['idGroupe'];
@@ -105,7 +107,7 @@ class='tabQuadrille'>";
          <td width='15%'>$nom</td>
          <td width='10%'>$nomPays</td>
          <td width='5%'>$nbChambres</td>";
-//nbTotal récupère le nombre de chambres totales attribuées à un groupe
+//nbTotal récupère le nombre de chambres total attribué à un groupe
       $nbTotal=0;
       $lgEtab=obtenirReqEtablissementsOffrantChambres($connexion);
 
@@ -117,9 +119,7 @@ class='tabQuadrille'>";
          $nbTotal+=$nbOccupGroupe;
       }
       echo"<td width = '3%'>$nbTotal</td>";
-
-       //on recherche le nombre de chambres attribuées total par boucle sur les groupes
-         
+      
       $lgEtab=obtenirReqEtablissementsOffrantChambres($connexion);
       // BOUCLE SUR LES ÉTABLISSEMENTS
       foreach ($lgEtab as $row)
@@ -128,7 +128,10 @@ class='tabQuadrille'>";
          $idEtab=$row["idEtab"];
          $nbOffre=$row["nombreChambresOffertes"];
          $nbOccup=obtenirNbOccup($connexion, $idEtab);
-                   
+         echo"<form method='POST' action='modificationAttributions.php'>
+         <input type='hidden' value='validerModifAttrib' name='action'>
+         <input type='hidden' value='$idEtab' name='idEtab'>
+         <input type='hidden' value='$idGroupe' name='idGroupe'>";          
          // Calcul du nombre de chambres libres
          $nbChLib = $nbOffre - $nbOccup;
                   
@@ -154,10 +157,21 @@ class='tabQuadrille'>";
             }
 
 
-            echo "
-            <td class='reserve'>
-            <a href='donnerNbChambres.php?idEtab=$idEtab&amp;idGroupe=$idGroupe&amp;nbChambres=$nbMax'>
-            $nbOccupGroupe</a></td>";
+            echo "<td>
+            &nbsp;<select name='nbChambres'>
+            ";
+            for ($i=0; $i<=$nbMax; $i++)
+            {
+               if($nbOccupGroupe==$i)
+                  echo"<option selected>$i</option>";
+               else
+                  echo "<option>$i</option>";
+
+            }
+            echo "</select>
+            <input type='submit' value='valider'>
+            </form>
+            </td>";
          
          }
          else
@@ -169,21 +183,27 @@ class='tabQuadrille'>";
             {
                if($nbChLib<$nbChambres-$nbTotal)
                {
-                  echo "
-                  <td class='reserveSiLien'>
-                  <a href='donnerNbChambres.php?idEtab=$idEtab&amp;idGroupe=$idGroupe&amp;nbChambres=$nbChLib'>
-                  __</a></td>";
+                  $nbMax = $nbChLib; 
                }
                else
                {
                   $nbMax = $nbChambres-$nbTotal;
-                  echo "
-                  <td class='reserveSiLien'>
-                  <a href='donnerNbChambres.php?idEtab=$idEtab&amp;idGroupe=$idGroupe&amp;nbChambres=$nbMax'>
-                  __</a></td>";
+                  
                }
+
+               echo "<td>
+               &nbsp;<select name='nbChambres'>
+               <option selected>0</option>";
+               for ($i=1; $i<=$nbMax; $i++)
+               {
+                  echo "<option>$i</option>";
+                  
+               }
+               echo "</select>
+               <input type='submit' value='valider'>
+               </form>
+               </td>";
             }
-            
             else
             {
                echo "<td class='reserveSiLien'>complet</td>";
