@@ -47,7 +47,7 @@ class='tabQuadrille'>";
       
    // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE (ÉTABLISSEMENTS)
    echo "
-   <tr class='ligneTabQuad'>
+   <tr class='enTeteTabQuadSecond'>
       <td>nom équipe</td>
       <td>pays d'origine</td>
       <td>nombre de chambres à avoir</td>
@@ -69,8 +69,8 @@ class='tabQuadrille'>";
       if($nbChLib==0)
       {
          echo "
-         <td valign='top' width='$pourcCol%'><i>Disponibilités : complet </i> <br>
-         $nom </td>";  
+         <td valign='top' width='$pourcCol%'><i>Disponibilités : <strong>complet </strong></i> <br>
+         $nom</td>";  
       }
       else
       {
@@ -157,7 +157,7 @@ class='tabQuadrille'>";
             }
 
 
-            echo "<td>
+            echo "<td class='reserve'>
             &nbsp;<select name='nbChambres'>
             ";
             for ($i=0; $i<=$nbMax; $i++)
@@ -223,7 +223,7 @@ echo "
       <td width='34%' align='left'><a href='consultationAttributions.php'>Retour</a>
       </td>
       <td class='reserveSiLien'>&nbsp;</td>
-      <td width='30%' align='left'>Réservation possible si lien</td>
+      <td width='30%' align='left'>Complet</td>
       <td class='reserve'>&nbsp;</td>
       <td width='30%' align='left'>Chambres réservées</td>
    </tr>
