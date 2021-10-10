@@ -1,3 +1,6 @@
+CREATE database festival;
+use festival;
+
 Create USER 'festival'@'localhost' IDENTIFIED BY 'secret';
 GRANT ALL ON festival . * TO 'festival'@'localhost' IDENTIFIED BY 'secret';
 
