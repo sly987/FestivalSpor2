@@ -83,7 +83,7 @@ class='tabQuadrille'>";
    echo "</tr>"; 
 
    // CORPS DU TABLEAU : CONSTITUTION D'UNE LIGNE PAR GROUPE À HÉBERGER AVEC LES 
-   // CHAMBRES ATTRIBUÉES ET LES LIENS POUR EFFECTUER OU MODIFIER LES ATTRIBUTIONS
+   // CHAMBRES ATTRIBUÉES ET LES LISTES DEROULANTES POUR EFFECTUER OU MODIFIER LES ATTRIBUTIONS
          
    $req=obtenirReqIdNomGroupesAHeberger();
    $rsGroupe=$connexion-> query($req);
@@ -178,8 +178,8 @@ class='tabQuadrille'>";
          else
          {
             // Cas où il n'y a pas de chambres attribuées à ce groupe dans cet 
-            // établissement : on affiche un lien vers donnerNbChambres s'il y a 
-            // des chambres libres sinon rien n'est affiché     
+            // établissement : on affiche une liste déroulante s'il y a 
+            // des chambres libres et s'il y a encore des chambres à reservées sinon "complet" est affiché    
             if ($nbChLib != 0 && $nbChambres-$nbTotal>0)
             {
                if($nbChLib<$nbChambres-$nbTotal)
