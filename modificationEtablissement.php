@@ -18,17 +18,17 @@ echo "<table width='80%' cellpadding='0' cellspacing='0' align='center'>
 $tabCivilite=array("M.","Mme","Melle");  
 
 $action=$_REQUEST['action'];
-$id=$_REQUEST['idEtab'];
+$idEtab=$_REQUEST['idEtab'];
 
 // Si on ne "vient" pas de ce formulaire, il faut récupérer les données à partir 
 // de la base (en appelant la fonction obtenirDetailEtablissement) sinon on 
 // affiche les valeurs précédemment contenues dans le formulaire
 if ($action=='demanderModifEtab')
 {
-   $lgEtab=obtenirDetailEtablissement($connexion, $id);
+   $lgEtab=obtenirDetailEtablissement($connexion, $idEtab);
   foreach ($lgEtab as $row) 
   {
-   $nom=$row['nomEtab'];
+   $nomEtab=$row['nomEtab'];
    $adresseRue=$row['adresseRue'];
    $codePostal=$row['codePostal'];
    $ville=$row['ville'];
@@ -44,7 +44,7 @@ if ($action=='demanderModifEtab')
 
 else
 {
-   $nom=$_REQUEST['nomEtab']; 
+   $nomEtab=$_REQUEST['nomEtab']; 
    $adresseRue=$_REQUEST['adresseRue'];
    $codePostal=$_REQUEST['codePostal'];
    $ville=$_REQUEST['ville'];
@@ -56,11 +56,11 @@ else
    $prenomResponsable=$_REQUEST['prenomResponsable'];
    $nombreChambresOffertes=$_REQUEST['nombreChambresOffertes'];
 
-   verifierDonneesEtabM($connexion, $id, $nom, $adresseRue, $codePostal, $ville,  
+   verifierDonneesEtabM($connexion, $idEtab, $nomEtab, $adresseRue, $codePostal, $ville,  
                         $tel, $nomResponsable, $nombreChambresOffertes);      
    if (nbErreurs()==0)
    {        
-      modifierEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, $ville, 
+      modifierEtablissement($connexion, $idEtab, $nomEtab, $adresseRue, $codePostal, $ville, 
                             $tel, $adresseElectronique, $type, $civiliteResponsable, 
                             $nomResponsable, $prenomResponsable, $nombreChambresOffertes);
    }
@@ -73,16 +73,16 @@ echo "
    class='tabNonQuadrille'>
    
       <tr class='enTeteTabNonQuad'>
-         <td colspan='3'>$nom ($id)</td>
+         <td colspan='3'>$nomEtab ($idEtab)</td>
       </tr>
       <tr>
-         <td><input type='hidden' value='$id' name='id'></td>
+         <td><input type='hidden' value='$idEtab' name='idEtab'></td>
       </tr>";
       
       echo '
       <tr class="ligneTabNonQuad">
          <td> Nom*: </td>
-         <td><input type="text" value="'.$nom.'" name="nom" size="50" 
+         <td><input type="text" value="'.$nomEtab.'" name="nomEtab" size="50" 
          maxlength="45"></td>
       </tr>
       <tr class="ligneTabNonQuad">
