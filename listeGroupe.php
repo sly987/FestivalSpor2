@@ -36,6 +36,11 @@ class='tabNonQuadrille'>
    {
       $idGroupe=$row['idGroupe'];
       $nomGroupe=$row['nomGroupe'];
+      $nbChambres =  intdiv($row['nombrePersonnes'],3);
+      if($row['nombrePersonnes']%3>0)
+      {
+         $nbChambresDemande = $nbChambres + 1;
+      }
       echo "
 		<tr class='ligneTabNonQuad'>
          <td width='52%'>$nomGroupe</td>
@@ -44,7 +49,7 @@ class='tabNonQuadrille'>
          <a href='detailGroupe.php?idGroupe=$idGroupe'>
          Voir détail</a></td>
          
-         <td width='16%' align='center'> 
+         <td width='15%' align='center'> 
          <a href='modificationGroupe.php?action=demanderModifGroupe&amp;idGroupe=$idGroupe'>
          Modifier</a></td>";
       	
@@ -53,7 +58,7 @@ class='tabNonQuadrille'>
 			if (!existeAttributionsGroupe($connexion, $idGroupe))
 			{
             echo "
-            <td width='16%' align='center'> 
+            <td width='17%' align='center'> 
             <a href='suppressionGroupe.php?action=demanderSupprGroupe&amp;idGroupe=$idGroupe'>
             Supprimer</a></td>";
         	 }
@@ -61,7 +66,7 @@ class='tabNonQuadrille'>
          	{
          		$nbChambre = obtenirNbGroupeOccup($connexion, $idGroupe);
             	echo "
-            	<td width='16%'>&nbsp ".$nbChambre." chambres occupées </td>";          
+            	<td width='17%'>&nbsp ".$nbChambre." chambres occupées sur $nbChambresDemande</td>";          
 			}
 			echo "</tr>";
    }   

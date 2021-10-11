@@ -8,7 +8,7 @@ include('connexion-PDO.php');
 
 function obtenirReqEtablissements()
 {
-   $req="select idEtab, nomEtab from Etablissement order by idEtab";
+   $req="select idEtab, nomEtab, nombreChambresOffertes from Etablissement order by idEtab";
    return $req;
 }
 
@@ -163,7 +163,7 @@ function obtenirReqIdNomGroupesAHeberger()
 }
 function obtenirReqGroupe()
 {
-   $req="select idGroupe, nomGroupe from Groupe order by idGroupe";
+   $req="select idGroupe, nomGroupe, nombrePersonnes from Groupe order by idGroupe";
    return $req;
 }
 

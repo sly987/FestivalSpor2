@@ -31,6 +31,7 @@ class='tabNonQuadrille'>
    {
       $id=$row['idEtab'];
       $nom=$row['nomEtab'];
+      $nombreChambresOffertes=$row['nombreChambresOffertes'];
 
       echo "
 		<tr class='ligneTabNonQuad'>
@@ -61,11 +62,11 @@ class='tabNonQuadrille'>
             $nbMax = nbChambresMax($connexion, $id);
             if($nb == $nbMax)
             {
-               echo "<td width='16%'>complet </td>";
+               echo "<td width='16%'>complet avec  $nombreChambresOffertes chambres </td>";
             }
             else{
                echo "
-               <td width='16%'> ".$nb." chambres occupés </td>";
+               <td width='16%'> ".$nb." chambres occupés sur $nombreChambresOffertes </td>";
             }          
 			}
 			echo "
