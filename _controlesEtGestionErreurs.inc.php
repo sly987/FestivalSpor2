@@ -89,13 +89,13 @@ function verifierDonneesEtabC($connexion, $id, $nom, $adresseRue, $codePostal,
    }
 }
 
-function verifierDonneesGrC($connexion, $idGroupe, $nomGroupe, $nombrePersonnes, $nomPays, $ligue )
+function verifierDonneesGrC($connexion, $idGroupe, $nomGroupe, $nombrePersonnes, $nomPays )
 {
-   if ($idGroupe=="" || $nomGroupe==""  || $nombrePersonnes==""  || $nompays=="" || $ligue=="")
+   if ($nomGroupe==""  || $nombrePersonnes==""  || $nomPays=="")
    {
       ajouterErreur("Chaque champ suivi du caractère * est obligatoire");
    }
-   if ($nomGroupe!="" && estUnNomGroupe($connexion, 'C', $idGroupe, $nom))
+   if ($nomGroupe!="" && estUnNomGroupe($connexion, 'C', $idGroupe, $nomGroupe))
    {
       ajouterErreur("Le groupe $nom existe déjà");
    }  

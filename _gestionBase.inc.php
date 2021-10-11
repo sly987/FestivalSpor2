@@ -209,11 +209,11 @@ function estUnNomGroupe($connexion, $mode, $idGroupe, $nomGroupe)
    // le même nom
    if ($mode=='C')
    {
-      $req="select * from Etablissement where nomGroupe='$nom'";
+      $req="select * from Groupe where nomGroupe='$nomGroupe'";
    }
    else
    {
-      $req="select * from Etablissement where nomEtab='$nomGroupe' and idEtab!='$idGroupe'";
+      $req="select * from Groupe where nomGroupe='$nomGroupe' and idGroupe!='$idGroupe'";
    }
    $rsEtab=$connexion->query($req);
    return $rsEtab->fetchAll();
@@ -257,8 +257,10 @@ function creerGroupe($connexion, $idGroupe, $nomGroupe, $nombrepersonnnes,$nompa
    $ligue=str_replace("'","''", $ligue);
    $nompays=str_replace("'","''", $nompays);
    $hebergement=str_replace("'","''", $hebergement);
+   if($ligue=="")
+      $ligue='NULL';
    
-   $req="insert into Groupe values ('$idGroupe', '$nomGroupe', '$nombrepersonnnes', '$nompays', '$hebergement','$ligue', 0)";
+   $req="insert into Groupe (idGroupe, nomGroupe, nombrepersonnes, nompays, hebergement, ligue, stand) values ('$idGroupe', '$nomGroupe', '$nombrepersonnnes', '$nompays', '$hebergement','$ligue', 0)";
    
    $connexion->query($req);
 }

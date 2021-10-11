@@ -36,7 +36,7 @@ else
    $ligue=$_REQUEST['ligue'];
    $nompays=$_REQUEST['nompays'];
    $hebergement=$_REQUEST['hebergement'];
-   verifierDonneesGrC($connexion, $idGroupe, $nomGroupe, $nombrePersonnes, $ligue, $nompays, 
+   verifierDonneesGrC($connexion, $idGroupe, $nomGroupe, $nombrePersonnes,  $nompays, $ligue, 
    $hebergement);
 
    if (nbErreurs()==0)
@@ -79,9 +79,9 @@ echo "
          size="50" maxlength="45" required></td>
       </tr>
       <tr class="ligneTabNonQuad">
-         <td> Ligue*: </td>
+         <td> Ligue: </td>
          <td><input type="text" value="'.$ligue.'" name="ligue" 
-         size="4" maxlength="5" required></td>
+         size="4" maxlength="5"></td>
       </tr>
       <tr class="ligneTabNonQuad">
          <td> Nom du pays*: </td>
@@ -89,7 +89,7 @@ echo "
          maxlength="35" required></td>
       </tr>
       <tr class="ligneTabNonQuad">
-         <td> Hébergement*: </td>
+         <td> Hébergement*(O/N): </td>
          <td><input type="text" value="'.$hebergement.'" name="hebergement" size ="20" 
          maxlength="10" required></td>
       </tr>';
