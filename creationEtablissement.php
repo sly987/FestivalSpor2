@@ -26,7 +26,7 @@ $action=$_REQUEST['action'];
 // les champs à vide sinon on affichera les valeurs précédemment saisies
 if ($action=='demanderCreEtab') 
 {  
-   $id='';
+   $idEtab='';
    $nom='';
    $adresseRue='';
    $ville='';
@@ -41,7 +41,7 @@ if ($action=='demanderCreEtab')
 }
 else
 {
-   $id=$_REQUEST['id']; 
+   $idEtab = $_REQUEST['idEtab'];
    $nom=$_REQUEST['nom']; 
    $adresseRue=$_REQUEST['adresseRue'];
    $codePostal=$_REQUEST['codePostal'];
@@ -54,16 +54,18 @@ else
    $prenomResponsable=$_REQUEST['prenomResponsable'];
    $nombreChambresOffertes=$_REQUEST['nombreChambresOffertes'];
 
-   verifierDonneesEtabC($connexion, $id, $nom, $adresseRue, $codePostal, $ville, 
+   verifierDonneesEtabC($connexion, $idEtab, $nom, $adresseRue, $codePostal, $ville, 
                         $tel, $nomResponsable, $nombreChambresOffertes);      
    if (nbErreurs()==0)
    {        
-      creerEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, $ville,  
+      creerEtablissement($connexion, $idEtab, $nom, $adresseRue, $codePostal, $ville,  
                          $tel, $adresseElectronique, $type, $civiliteResponsable, 
                          $nomResponsable, $prenomResponsable, $nombreChambresOffertes);
    }
 }
-
+ $idEtab = obtenirIdEtab($connexion);
+   $idEtab = str_replace("E", "", $idEtab);
+   $idEtab = (int) $idEtab + 1;
 echo "
 <form method='POST' action='creationEtablissement.php?'>
    <input type='hidden' value='validerCreEtab' name='action'>
@@ -75,8 +77,7 @@ echo "
       </tr>
       <tr class='ligneTabNonQuad'>
          <td> Id*: </td>
-         <td><input type='text' value='$id' name='id' size ='10' 
-         maxlength='8'></td>
+         <td>E".$idEtab."<input type = 'hidden' name = 'idEtab' value = 'E".$idEtab."' /></td>
       </tr>";
      
       echo '

@@ -67,7 +67,7 @@ echo "
       echo '
       <tr class = "ligneTabNonQuad">
          <td> ID du groupe*:</td>
-         <td>g0'.$idGroupe.'<input type = "hidden" name = "idGroupe" value = "g0'.$idGroupe.'" /></td>
+         <td>g'.$idGroupe.'<input type = "hidden" name = "idGroupe" value = "g'.$idGroupe.'" /></td>
       <tr class="ligneTabNonQuad">
          <td> Nom du groupe*: </td>
          <td><input type="text" value="'.$nomGroupe.'" name="nomGroupe" size="50" 

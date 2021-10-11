@@ -5,6 +5,17 @@ include('connexion-PDO.php');
 
 
 // FONCTIONS DE GESTION DES ÉTABLISSEMENTS
+function obtenirIdEtab($connexion)
+{
+   $req = "SELECT idEtab FROM Etablissement order by (idEtab) desc limit 0, 1";
+   $rsEtab = $connexion-> query($req);
+   $lgEtab = $rsEtab->fetchAll();
+  foreach ($lgEtab as $row)
+   {
+      $idEtab = $row['idEtab'];
+   }
+   return $idEtab;
+}
 
 function obtenirReqEtablissements()
 {

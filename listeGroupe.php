@@ -49,7 +49,7 @@ class='tabNonQuadrille'>
          <a href='detailGroupe.php?idGroupe=$idGroupe'>
          Voir détail</a></td>
          
-         <td width='15%' align='center'> 
+         <td width='14%' align='center'> 
          <a href='modificationGroupe.php?action=demanderModifGroupe&amp;idGroupe=$idGroupe'>
          Modifier</a></td>";
       	
@@ -58,7 +58,7 @@ class='tabNonQuadrille'>
 			if (!existeAttributionsGroupe($connexion, $idGroupe))
 			{
             echo "
-            <td width='17%' align='center'> 
+            <td width='18%' align='center'> 
             <a href='suppressionGroupe.php?action=demanderSupprGroupe&amp;idGroupe=$idGroupe'>
             Supprimer</a></td>";
         	 }
@@ -66,7 +66,7 @@ class='tabNonQuadrille'>
          	{
          		$nbChambre = obtenirNbGroupeOccup($connexion, $idGroupe);
             	echo "
-            	<td width='17%'>&nbsp ".$nbChambre." chambres occupées sur $nbChambresDemande</td>";          
+            	<td width='18%'>&nbsp ".$nbChambre." chambres occupées sur $nbChambresDemande</td>";          
 			}
 			echo "</tr>";
    }   

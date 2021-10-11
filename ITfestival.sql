@@ -1,10 +1,10 @@
 
 -- Certains établissements sont fictifs
 /*problème des accents*/
-insert into Etablissement values ('0350785N', 'College de Moka', '2 avenue AristidGroupee Briand BP 6', '35401', 'Saint-Malo', '0299206990', null,1,'M.','Dupont','Alain',20);
-insert into Etablissement values ('0350123A', 'College Lamartine', '3, avenue des corsaires', '35404', 'Parame', '0299561459', null, 1,'Mme','Lefort','Anne',58);  
-insert into Etablissement values ('0351234W', 'College Leonard de Vinci', '2 rue Rabelais', '35418', 'Saint-Malo', '0299117474', null, 1,'M.','Durand','Pierre',60);   
-insert into Etablissement values ('11111111', 'Centre de rencontres internationales', '37 avenue du R.P. Umbricht BP 108', '35407', 'Saint-Malo', '0299000000', null, 0, 'M.','Guenroc','Guy',200);
+insert into Etablissement values ('E001', 'College de Moka', '2 avenue AristidGroupee Briand BP 6', '35401', 'Saint-Malo', '0299206990', null,1,'M.','Dupont','Alain',20);
+insert into Etablissement values ('E002', 'College Lamartine', '3, avenue des corsaires', '35404', 'Parame', '0299561459', null, 1,'Mme','Lefort','Anne',58);  
+insert into Etablissement values ('E003', 'College Leonard de Vinci', '2 rue Rabelais', '35418', 'Saint-Malo', '0299117474', null, 1,'M.','Durand','Pierre',60);   
+insert into Etablissement values ('E004', 'Centre de rencontres internationales', '37 avenue du R.P. Umbricht BP 108', '35407', 'Saint-Malo', '0299000000', null, 0, 'M.','Guenroc','Guy',200);
 select * from Etablissement;
 
 -- Certains groupes sont incomplètement renseignés
@@ -54,15 +54,15 @@ insert into Groupe (idGroupe, nomGroupe, nombrepersonnes, nompays, hebergement, 
 insert into Groupe (idGroupe, nomGroupe, nombrepersonnes, nompays, hebergement, stand) values ('g044','Kan Tri',0,'France - Bretagne','N', 0);
 select * from Groupe;
 -- Les attributions sont fictives
-insert into Attribution values ('0350785N', 'g001', 11);
-insert into Attribution values ('0350785N', 'g002', 9);
+insert into Attribution values ('E001', 'g001', 11);
+insert into Attribution values ('E001', 'g002', 9);
 
-insert into Attribution values ('0350123A', 'g004', 13);
-insert into Attribution values ('0350123A', 'g005', 8);
+insert into Attribution values ('E002', 'g004', 13);
+insert into Attribution values ('E002', 'g005', 8);
 
-insert into Attribution values ('0351234W', 'g001', 3);
-insert into Attribution values ('0351234W', 'g006', 10);
-insert into Attribution values ('0351234W', 'g007', 7);
+insert into Attribution values ('E003', 'g001', 3);
+insert into Attribution values ('E003', 'g006', 10);
+insert into Attribution values ('E003', 'g007', 7);
 select * from Attribution;
 
 
