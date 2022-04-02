@@ -47,8 +47,11 @@ function obtenirDetailEtablissement($connexion, $id)
 
 function supprimerEtablissement($connexion, $id)
 {
-   $req="delete from Etablissement where idEtab='$id'";
-   $connexion->query($req );
+   $Statement =$connexion->prepare("delete from Etablissement where idEtab= :id");
+   $Statement->execute(['id'=>$id]);
+   
+   //$req="delete from Etablissement where idEtab='$id'";
+   //$connexion->query($req );
 }
  
 function modifierEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, 
